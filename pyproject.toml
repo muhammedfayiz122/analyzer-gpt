@@ -1,0 +1,23 @@
+[project]
+name = "analyzer-gpt"
+version = "0.1.0"
+description = "Analyzer-GPT that can analyze and visualize data"
+authors = [
+    { name = "Muhammed Fayiz", email = "muhammedfayiz122@gmail.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = [
+    # your actual requirements go here
+]
+
+[project.urls]
+Homepage = "https://github.com/muhammedfayiz122/analyzer-gpt"
+
+[project.scripts]
+analyzer_gpt = "analyzer_gpt.src.main:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

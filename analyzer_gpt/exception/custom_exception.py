@@ -1,5 +1,5 @@
 import sys
-
+from analyzer_gpt.logger import logger
 def error_message_details(error, error_details):
     """_summary_
 
@@ -32,6 +32,7 @@ class CustomException(Exception):
     def __init__(self, error_message, error_details):
         super().__init__(error_message)
         self.error_message = error_message_details(error_message, error_details)
+        # logger.logging.ERROR(error_message
         
     def __str__(self):
         return self.error_message

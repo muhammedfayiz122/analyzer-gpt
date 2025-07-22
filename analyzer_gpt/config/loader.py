@@ -1,5 +1,5 @@
 import yaml
-from utils.paths import ROOT_DIR
+from analyzer_gpt.utils.paths import ROOT_DIR
 import os
 
 class Config:
