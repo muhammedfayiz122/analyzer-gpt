@@ -8,9 +8,19 @@ load_dotenv()
 
 def load_model_client():
     try:
-        api_key = os.getenv("OPENAI_API_KEY")
-        openai_model_client = OpenAIChatCompletionClient(model="gpt-4.1-nano-2025-04-14", api_key=api_key)
-        return openai_model_client
+        open_router_api_key = os.getenv("OPEN_ROUTER_API_KEY")
+        open_router_model_client =  OpenAIChatCompletionClient(
+            base_url="https://openrouter.ai/api/v1",
+            model="openrouter/cypher-alpha:free",
+            api_key = open_router_api_key,
+            model_info={
+                "family":'deepseek',
+                "vision" :True,
+                "function_calling":True,
+                "json_output": False
+            }
+        )
+        return gemini_model_client
     except Exception as e:
         raise CustomException(e, sys)
     
@@ -23,3 +33,4 @@ if __name__ == "__main__":
         response = await model_client.create([message])
         print(response)
     asyncio.run(main())
+    

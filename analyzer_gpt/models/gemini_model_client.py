@@ -8,9 +8,9 @@ load_dotenv()
 
 def load_model_client():
     try:
-        api_key = os.getenv("OPENAI_API_KEY")
-        openai_model_client = OpenAIChatCompletionClient(model="gpt-4.1-nano-2025-04-14", api_key=api_key)
-        return openai_model_client
+        api_key = os.getenv("GOOGLE_API_KEY")
+        gemini_model_client = OpenAIChatCompletionClient(model="gemini-1.5-flash", api_key=api_key)
+        return gemini_model_client
     except Exception as e:
         raise CustomException(e, sys)
     
@@ -23,3 +23,4 @@ if __name__ == "__main__":
         response = await model_client.create([message])
         print(response)
     asyncio.run(main())
+    

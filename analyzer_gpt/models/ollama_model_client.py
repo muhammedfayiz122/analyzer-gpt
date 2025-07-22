@@ -1,16 +1,11 @@
-from autogen_ext.models.openai import OpenAIChatCompletionClient
-from dotenv import load_dotenv
+from autogen_ext.models.ollama import OllamaChatCompletionClient
 from analyzer_gpt.exception.custom_exception import CustomException
 import sys
-import os
-
-load_dotenv()
 
 def load_model_client():
     try:
-        api_key = os.getenv("OPENAI_API_KEY")
-        openai_model_client = OpenAIChatCompletionClient(model="gpt-4.1-nano-2025-04-14", api_key=api_key)
-        return openai_model_client
+        ollama_model_client = OllamaChatCompletionClient(model="mistral")
+        return ollama_model_client
     except Exception as e:
         raise CustomException(e, sys)
     
@@ -23,3 +18,4 @@ if __name__ == "__main__":
         response = await model_client.create([message])
         print(response)
     asyncio.run(main())
+    
