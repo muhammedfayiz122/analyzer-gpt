@@ -1,0 +1,4 @@
+MODEL_OPENAI="gpt-4.1-nano"
+MODEL_GEMINI="gemini-1.5-flash"
+WORK_DIR_DOCKER="temp"
+TIMEOUT_DOCKER=20
