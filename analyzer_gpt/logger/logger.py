@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 from datetime import datetime
 from analyzer_gpt.utils.paths import ROOT_DIR
 import os
-print(ROOT_DIR)
+
 try:
     from colorlog import ColoredFormatter
 except ImportError:

@@ -9,7 +9,7 @@ load_dotenv()
 def load_model_client():
     try:
         api_key = os.getenv("GOOGLE_API_KEY")
-        gemini_model_client = OpenAIChatCompletionClient(model="gemini-1.5-flash", api_key=api_keyi)
+        gemini_model_client = OpenAIChatCompletionClient(model="gemini-1.5-flash", api_key=api_key)
         return gemini_model_client
     except Exception as e:
         raise CustomException(e)

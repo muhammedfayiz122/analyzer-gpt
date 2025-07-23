@@ -1,9 +1,7 @@
 import sys
-from analyzer_gpt.logger import logger
 from analyzer_gpt.logger.logger import logger
 
 from analyzer_gpt.utils.paths import ROOT_DIR
-# print(ROOT_DIR)
 
 def error_message_details(error, error_details=sys):
     """_summary_
@@ -47,5 +45,4 @@ if __name__ == "__main__":
         a = 10 / 0
     except Exception as e:
         raise CustomException(e)
-        # pass
     

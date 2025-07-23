@@ -21,3 +21,6 @@ analyzer_gpt = "analyzer_gpt.src.main:main"
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["analyzer_gpt"]
