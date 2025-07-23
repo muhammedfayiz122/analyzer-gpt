@@ -1,6 +1,11 @@
 import sys
 from analyzer_gpt.logger import logger
-def error_message_details(error, error_details):
+from analyzer_gpt.logger.logger import logger
+
+from analyzer_gpt.utils.paths import ROOT_DIR
+# print(ROOT_DIR)
+
+def error_message_details(error, error_details=sys):
     """_summary_
 
     Args:
@@ -16,7 +21,6 @@ def error_message_details(error, error_details):
     # tb_frame: frame object
     # f_code: code object
     # co_filename: the name of the file containing the code
-    # so, it is like : frame_object.code_object.file_name 
     file_name = exc_tb.tb_frame.f_code.co_filename
     
     error_message = (
@@ -29,10 +33,19 @@ def error_message_details(error, error_details):
     
 
 class CustomException(Exception):
-    def __init__(self, error_message, error_details):
+    def __init__(self, error_message, error_details=sys, log=True):
         super().__init__(error_message)
         self.error_message = error_message_details(error_message, error_details)
-        # logger.logging.ERROR(error_message
-        
+        if log:
+            logger.error(error_message)
+            
     def __str__(self):
         return self.error_message
+    
+if __name__ == "__main__":
+    try:
+        a = 10 / 0
+    except Exception as e:
+        raise CustomException(e)
+        # pass
+    
