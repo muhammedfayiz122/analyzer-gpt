@@ -13,11 +13,10 @@ def getDataAnalyzerTeam(docker, model_client):
     code_executor_agent = getCodeExecutorAgent(docker)
     data_analyzer_agent = getDataAnalyzerAgent(model_client)
 
-    termination = TextMentionTermination("TERMINATE")
+    termination = TextMentionTermination("TERMINATE") | TokenUsageTermination(max_total_token=3000)
     team = RoundRobinGroupChat(
-        name="",
-        particippants=[data_analyzer_agent, code_executor_agent],
+        participants=[data_analyzer_agent, code_executor_agent],
+        max_turns=10,
         termination_condition=termination
-        
     )
-    
+    return team
