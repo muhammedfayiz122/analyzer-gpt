@@ -212,3 +212,6 @@ __marimo__/
 # Logs
 logs
 .log
+
+# Docker Directory
+temp

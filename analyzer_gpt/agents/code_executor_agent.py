@@ -10,4 +10,4 @@ def getCodeExecutorAgent(code_executor):
         name="Python_Code_Executor",
         code_executor=code_executor
     )
-    return code_executor
+    return code_executor_agent

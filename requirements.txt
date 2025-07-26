@@ -1,1 +1,7 @@
+# autogen_ext
+autogen-agentchat
+langchain-community
+docker
+autogen_ext[docker]
+streamlit
 -e .

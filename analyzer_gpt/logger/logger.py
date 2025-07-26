@@ -2,7 +2,7 @@ import logging
 from logging import StreamHandler
 from logging.handlers import RotatingFileHandler
 from datetime import datetime
-from analyzer_gpt.utils.paths import ROOT_DIR
+from analyzer_gpt.utils.paths import LOG_PATH
 import os
 
 try:
@@ -14,14 +14,14 @@ except ImportError:
 # os.environ["TERM"] = "xterm-color"
 
 # Config Values
-LOG_FILE_NAME = f"{datetime.now().strftime("%m_%d_%Y_%H_%M_%S")}.log"
+LOG_FILE_NAME = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 LOG_FILE_FORMAT = "[%(asctime)s] %(levelname)s: %(message)s"
 LOG_DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 LOG_CONSOLE_FORMAT = "%(log_color)s[%(asctime)s] [%(levelname)s] %(name)s:%(lineno)d - %(message)s"
 LOG_LEVEL = logging.DEBUG
 LOG_MAX_BYTES = 5 * 1024 * 1024
 LOG_BACKUP_COUNT = 50
-LOG_DIR = os.path.join(ROOT_DIR, "logs")
+LOG_DIR = os.path.join(LOG_PATH, "logs")
 
 os.makedirs(LOG_DIR, exist_ok=True)
 log_path = os.path.join(LOG_DIR, LOG_FILE_NAME)

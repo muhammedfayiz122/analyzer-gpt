@@ -1,8 +1,6 @@
 import sys
 from analyzer_gpt.logger.logger import logger
 
-from analyzer_gpt.utils.paths import ROOT_DIR
-
 def error_message_details(error, error_details=sys):
     """_summary_
 
@@ -31,9 +29,12 @@ def error_message_details(error, error_details=sys):
     
 
 class CustomException(Exception):
-    def __init__(self, error_message, error_details=sys, log=True):
+    def __init__(self, error_message, error_details=sys, log=True, custom_msg=None):
+        """ Initializes the CustomException with a detailed error message."""
         super().__init__(error_message)
         self.error_message = error_message_details(error_message, error_details)
+        if custom_msg:
+            self.error_message += custom_msg + ": " + self.error_message
         if log:
             logger.error(error_message)
             
@@ -45,4 +46,3 @@ if __name__ == "__main__":
         a = 10 / 0
     except Exception as e:
         raise CustomException(e)
-    
